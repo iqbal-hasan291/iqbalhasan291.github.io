@@ -34,6 +34,11 @@
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
+/* Site-wide configurable background color. Change this value to update the page background. */
+:root {
+  --page-bg: #0d1b2a; /* default: white */
+}
+
 *,
 *::before,
 *::after {
@@ -57,7 +62,8 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  /* Use the configurable page background variable. */
+  background-color: var(--page-bg, #0d1b2a); }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -8148,7 +8154,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background: #000000;
+  /* Use the configurable page background variable so this later rule doesn't override the value
+     change --page-bg in :root at the top of this file to update the site's background color */
+  background: var(--page-bg, #page-bg);
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
